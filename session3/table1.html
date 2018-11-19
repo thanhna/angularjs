@@ -1,0 +1,33 @@
+<div>
+    Show: <select ng-model="sortColumn">
+        <option value="name">Name ASC</option>
+        <option value="-name">Name DESC</option>
+        <option value="dateOfBirth">Date Of Birth ASC</option>
+        <option value="-dateOfBirth">Date Of Birth DESC</option>
+        <option value="price">Price ASC</option>
+        <option value="-price">Price DESC</option>
+    </select>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tab in table | orderBy:sortColumn">
+            <td>{{$index + 1}}</td>
+            <td>{{ tab.name | uppercase }}</td>
+            <td>{{ tab.price || currency }}</td>
+            <td>{{ tab.status | status}}</td>
+            <td>{{ tab.gender }}</td>
+            <td>{{ tab.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+        </tr>
+    </tbody>
+</table>
+<div>

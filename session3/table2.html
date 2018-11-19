@@ -1,0 +1,31 @@
+<input type="text" placeholder="Search" ng-model="seachText">
+<input type="checkbox" ng-model="hidden">
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th ng-click="sortData('name')">Name <div ng-class="getSortClass('name')"></div>
+            </th>
+            <th ng-hide="hidden" ng-click="sortData('price')">Price <div ng-class="getSortClass('price')"></div>
+            </th>
+            <th ng-show="hidden" ng-click="sortData('status')">Status <div ng-class="getSortClass('status')"></div>
+            </th>
+            <th ng-click="sortData('gender')">Gender <div ng-class="getSortClass('gender')"></div>
+            </th>
+            <th ng-click="sortData('dateOfBirth')">Date Of Birth <div ng-class="getSortClass('dateOfBirth')"></div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tab in table | orderBy:sortColumn:reverse | filter:seachText">
+            <td>{{$index + 1}}</td>
+            <td>{{ tab.name | uppercase }}</td>
+            <td ng-hide="hidden">{{ tab.price || currency }}</td>
+            <td ng-show="hidden">{{ tab.status | status}}</td>
+            <td>{{ tab.gender }}</td>
+            <td>{{ tab.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+        </tr>
+    </tbody>
+</table>
+
