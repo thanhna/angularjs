@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ng-invalid{
+    color:red;
+    }  
+    </style>
+</head>
+
+<body ng-controller="myController">
+    <div>
+        {{test}}
+         Name <input type="text" ng-model="name">
+         Website: <input type="text" ng-model="website">
+        <pre ng-bind-template="<h1>{{name}} {{website}}</h1>!"></pre>
+    </div>
+
+    <div>
+        <input type="text" ng-model="href" />
+        <p ng-bind-html="href"></p>
+    </div>
+
+    <div>
+        <form ng-submit="submit()">
+            <input type="text" ng-model="text">
+            <button type="submit">Submit</button>
+            <p>List: {{list}}</p>
+        </form>
+    </div>
+
+    <div class="float-right">
+        <h1>Đăng Nhập</h1>
+        <form name="myForm" ng-submit="login()">
+            User name: <br />
+            <input type="text" name="userName" ng-pattern="/^([a-zA-Z0-9]+)$/" ng-model="username" ng-trim="true"
+                required ng-minlength="3" ng-maxlength="12" /> <br />
+            Password: <br />
+            <input type="text" name="userPass" ng-model="password" required ng-minlength="3" ng-maxlength="10" ng-trim="true">
+            <br /><br />
+            <input type="submit" value='Login' />
+        </form>
+    </div>
+
+    <form name="myForm2">
+        <input type="date" name="input" ng-model="value" min="2018-01-01" max="2018-12-31" />
+    </form>
+
+    <ul ng-init="students">
+        <li ng-repeat="student in students">Tên: {{student.name}}, Tuổi {{student.age}}, Giới tính: {{student.gender}}</li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.5/angular-sanitize.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

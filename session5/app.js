@@ -3,7 +3,6 @@ app.controller('myController', ['$scope', $scope => {
     $scope.test = 'Welcome'
     $scope.so1 = ''
     $scope.so2 = ''
-
     $scope.divHidden = 'display: none'
     $scope.showResult = () => {
         if ($scope.calForm.$valid) {

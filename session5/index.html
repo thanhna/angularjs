@@ -25,9 +25,11 @@
 <body ng-controller="myController">
     <h3>{{test}}</h3>
     <form name="calForm">
-        <input type="text" ng-model="so1" ng-pattern="/^\d+$/" class="my-input" required ng-keyup="showResult()">
-        <input type="text" ng-model="so2" ng-pattern="/^\d+$/" class="my-input" required ng-keyup="showResult()">
-        <div style='{{divHidden}}'>
+        <div>
+            <input type="text" ng-model="so1" ng-pattern="/^\d+$/" class="my-input" required ng-keyup="showResult()">
+            <input type="text" ng-model="so2" ng-pattern="/^\d+$/" class="my-input" required ng-keyup="showResult()">
+        </div>
+        <div style="{{divHidden}}">
             <h5>phép cộng: {{phepcong}}</h5>
             <h5>phép trừ: {{pheptru}} </h5>
             <h5>phép nhân: {{phepnhan}}</h5>
@@ -37,7 +39,7 @@
 
     <form name="userForm">
         <h5>Nhập nội dung của bạn nào</h5>
-        <input type="text" name="userName" ng-model="user.name" ng-model-options="{updateOn:'blur'}"/><br />
+        <input type="text" name="username" ng-model="user.name" ng-model-options="{updateOn:'blur'}" /><br />
         <h5>Chuỗi mà Bạn đang nhập là:</h5>
         <span ng-bind="user.name"></span>
     </form>
